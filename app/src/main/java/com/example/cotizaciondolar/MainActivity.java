@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.cotizaciondolar.data.datasource.ApiAdapter;
 import com.example.cotizaciondolar.data.dto.CotizacionDTO;
+import com.example.cotizaciondolar.data.repository.CotizacionRepository;
 import com.example.cotizaciondolar.ui.RecyclerAdapter;
 
 import java.util.ArrayList;
@@ -30,8 +31,7 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Cot
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       Call<List<CotizacionDTO>> call = ApiAdapter.getApiService().getCasas();
-        call.enqueue(this);
+        new CotizacionRepository().getCotizacionHoy(this);
 
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

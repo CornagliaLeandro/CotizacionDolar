@@ -17,7 +17,7 @@ public class CotizacionRepository {
     private final ApiService api;
 
 
-    public CotizacionRepository(Context appContext) {
+    public CotizacionRepository() {
         this.api =  ApiAdapter.getApiService();
     }
 
